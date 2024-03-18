@@ -20,10 +20,12 @@ function Signup() {
             const userData = await authService.getCurrentUser()
             if(userData) dispatch(login(userData))
             navigate("/")
+            
            }
         } catch (error) {
             setError("")
         }
+        window.location.reload();
     }
 
   return (

@@ -16,11 +16,15 @@ function Login() {
         setError("")
         try {
             const session = await authService.login(data)
-            if (session) {
+            // console.log("login successful 1")
+
+            // if (true) {
                 const userData = await authService.getCurrentUser()
                 if(userData) dispatch(authLogin(userData));
                 navigate("/")
-            }
+                // console.log("login successful 2")
+                
+            // }
         } catch (error) {
             setError(error.message)
         }
@@ -72,7 +76,6 @@ function Login() {
                 <Button
                 type="submit"
                 className="w-full"
-                onSubmit={login}
                 >Sign in</Button>
             </div>
         </form>
