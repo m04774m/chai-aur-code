@@ -18,13 +18,15 @@ function Login() {
             const session = await authService.login(data)
             // console.log("login successful 1")
 
-            // if (true) {
+            if (session) {
                 const userData = await authService.getCurrentUser()
                 if(userData) dispatch(authLogin(userData));
                 navigate("/")
                 // console.log("login successful 2")
                 
-            // }
+            }
+        window.location.reload();
+            
         } catch (error) {
             setError(error.message)
         }
